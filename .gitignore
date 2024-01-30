@@ -1,0 +1,7 @@
+env/
+.env
+.ipynb_checkpoints/
+notebook/.ipynb_checkpoints/
+morele/morele/__pycache__/
+morele/morele/spiders/__pycache__
+scrapy/

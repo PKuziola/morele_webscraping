@@ -1,0 +1,46 @@
+version: "3"
+services:
+    postgres:
+        build:
+            context: ./database
+        image: morele_database 
+        environment:
+            - POSTGRES_USER=${POSTGRES_USER}
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+            - POSTGRES_DB=${POSTGRES_DB}
+        ports:
+            - 5432:5432
+        networks:
+            - my_network                
+    scraper:        
+        build:
+            context: ./morele            
+        volumes:
+            - ./scrapy:/scrapy
+        working_dir: /morele_webscraping/morele
+        command: bash -c "scrapy crawl morele_spider"
+        environment:
+            - POSTGRES_USER=${POSTGRES_USER}
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+            - POSTGRES_DB=${POSTGRES_DB}
+        depends_on:
+            - postgres
+        restart: on-failure
+        networks:
+            - my_network
+    jupyter:
+        image: jupyter_notebook
+        environment:
+            - NB_USER=docker_worker
+            - JUPYTER_TOKEN=morele
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+            - POSTGRES_DB=${POSTGRES_DB}        
+        ports:
+            - 8888:8888
+        networks:
+            - my_network
+        volumes:
+            - ./notebook:/home/jovyan/notebook
+        working_dir: /home/jovyan/notebook
+networks:
+    my_network:
