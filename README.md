@@ -18,7 +18,7 @@ This project job is to:<p>
 - visualize data <p>
     Projects creates .ipynb file which connects to database to provide insight into graphic cards available in [Morele.net](https://www.morele.net/kategoria/karty-graficzne-12/) store through the visualization of data scraped from [Morele.net](https://www.morele.net/kategoria/karty-graficzne-12/)<p>
 - build model <p>
-    In order to predict card price XGBoost model was developed, measures such as hiperparameter tuning, variable's categorization, outlier removal were undertaken to achieve best possible model performance <p>
+    In order to predict card price XGBoost model was developed, measures such as hyperparameter tuning, variable's categorization, outlier removal were undertaken to achieve best possible model performance <p>
 - give recommendation<p>
     Based on developed model I listed the best cards you can buy under certain price thresholds. I believe these cards provide best value-for-money. <p>
 
