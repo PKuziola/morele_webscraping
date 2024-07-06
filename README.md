@@ -24,7 +24,7 @@ This project job is to:<p>
 
 ### Recommendation example - Top 5 Cards under 2000 zł budget
 
-<img src="https://i.ibb.co/VTfsLNJ/recommend.png"/>
+<img src="https://raw.githubusercontent.com/PKuziola/morele_webscraping/main/img/img_1.png"/>
 
 
 # Database consists of one table
@@ -121,6 +121,8 @@ docker compose up --build .
 ├───database
 │   ├───Dockerfile
 │   ├───init.sql
+├───img
+│   └──img_1.png
 ├───morele
 │   ├── morele
 │   │   ├── __init__.py
@@ -135,7 +137,7 @@ docker compose up --build .
 │   └── requirements.txt
 ├───notebook
 │   ├───data_analysis_pc.ipynb
-│   ├───Dockerfile
+│   └──Dockerfile
 ├── docker-compose.yaml
 ├── license.txt
 ├── README.md 
